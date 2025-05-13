@@ -1,0 +1,22 @@
+## Test 1
+Есть функция process_orders, которая принимает список заказов от интернет-магазина. Каждый заказ — это словарь с ключами: id, items (список товаров), total_price (сумма заказа), и status. Функция должна:
+1. Отфильтровать заказы со статусом "completed".
+2. Отсортировать заказы по убыванию total_price.
+3. Вернуть список из ID первых 3-х самых дорогих заказов.
+
+Пример входных данных:
+orders = [
+    {"id": 1, "items": ["item1", "item2"], "total_price": 150, "status": "completed"},
+    {"id": 2, "items": ["item3"], "total_price": 200, "status": "completed"},
+    {"id": 3, "items": ["item4", "item5"], "total_price": 100, "status": "completed"},
+    {"id": 4, "items": ["item6"], "total_price": 300, "status": "completed"},
+    {"id": 5, "items": ["item7"], "total_price": 50, "status": "cancelled"},
+]
+Ответ: [4,2,1]
+
+## Test 2
+Сервис должен:
+1. Принимать POST-запрос по /submit-order, содержащий JSON-данные о заказе: id, items (список строк) и total_price.
+2. Валидировать, что items не пустой и total_price > 0.
+3. Если валидация успешна, возвращать {"status": "ok"}.
+4. Иначе — возвращать ошибку с соответствующим кодом и сообщением.
